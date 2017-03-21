@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+  include ../templates/navu
+
+  div(class=['ui','container', 'grid','stackable'])
+    div(class=['ten','wide','column'])
+      h2(class=['ui', 'header', 'blue','dividing'])= 'Novo Produto'
+
+      div(class='form-novousuario')
+        form(class=['ui','form'] action='http://localhost:3000/criarProduto' method='post')
+          div(class=['ui','field'])
+            label(for='nome')= 'Nome'
+            input(type='text' name='nome')
+          div(class=['ui','two','field'])
+            div(class=['ui','field'])
+              label(for='preco')= 'Preço'
+              input(type='text' name='preco')
+            div(class=['ui','field'])
+              label(for='descricao')= 'Descrição'
+              input(type='text' name='descricao')
+            div(class=['ui','field'])
+              label(for='quantidade')= 'Quantidade'
+              input(type='text' name='quantidade')
+          button(class=['ui','button','basic','black'])= 'Registrar Produto'
+    if info!= undefined
+        div(class=['ui','message','sucess'])
+          i(class=['close', 'icone'])
+          div(class='header')= 'Produto Registrado'
+          p= info  

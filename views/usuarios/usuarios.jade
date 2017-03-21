@@ -1,0 +1,37 @@
+extends ../layout
+
+block content
+  include ../templates/navu
+
+  div(class=['ui','container', 'grid','stackable'])
+    div(class=['sixteen','wide','column'])
+      h2(class=['ui', 'header', 'blue','dividing'])= 'Lista Usuarios'
+      table(class=['ui','table', 'celled'] id='tbl-usuarios')
+        thread
+          tr
+            th='ID'
+            th='Nome'
+            th='Email'
+            th='Endereço'
+            th='CPF'
+            th='Telefone'
+            th='Senha'
+            th='Ações'
+        tbody
+          each Usuarios in usuarios
+            tr
+              td(id='id_usuario')= Usuarios.Usu_Id
+              td= Usuarios.Usu_Nome
+              td= Usuarios.Usu_Email
+              td= Usuarios.Usu_End
+              td= Usuarios.Usu_Cpf
+              td= Usuarios.Usu_Tel
+              td= Usuarios.Usu_Senha
+              td
+                a(class=['ui button icone'] href='#' data-inverted='' data-tooltip='Excluir' data-position='top center' id='btn-excluir')
+                  i(class=['trash icon'])
+
+                a(class=['ui button icone'] href='http://localhost:3000/modificar/'+Usuarios.Usu_Id data-inverted='' data-tooltip='Editar' data-position='top center')
+                  i(class=['cut icon'])
+  script(src='/javascripts/usuarios.js')
+

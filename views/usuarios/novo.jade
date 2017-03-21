@@ -1,0 +1,37 @@
+extends ../layout
+
+block content
+  include ../templates/nav
+
+  div(class=['ui','container', 'grid','stackable'])
+    div(class=['ten','wide','column'])
+      h2(class=['ui', 'header', 'blue','dividing'])= 'Novo Usuario'
+
+      div(class='form-novousuario')
+        form(class=['ui','form'] action='http://localhost:3000/criarusuario' method='post')
+          div(class=['ui','field'])
+            label(for='nome')= 'Nome'
+            input(type='text' name='nome')
+          div(class=['ui','two','field'])
+            div(class=['ui','field'])
+              label(for='cpf')= 'CPF'
+              input(type='text' name='cpf')
+            div(class=['ui','field'])
+              label(for='endereco')= 'Endereço'
+              input(type='text' name='endereco')
+            div(class=['ui','field'])
+              label(for='telefone')= 'Telefone'
+              input(type='text' name='telefone')
+            div(class=['ui','field'])
+              label(for='email')= 'Email'
+              input(type='email' name='email')
+            div(class=['ui','field'])
+              label(for='senha')= 'Senha'
+              input(type='password' name='senha')
+          button(class=['ui','button','basic','black'])= 'Criar Usuário'
+
+      if info!= undefined
+        div(class=['ui','message','sucess'])
+          i(class=['close', 'icone'])
+          div(class='header')= 'Usuário Registrado'
+          p= info

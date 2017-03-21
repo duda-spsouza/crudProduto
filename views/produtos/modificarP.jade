@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+  include ../templates/navu
+
+  div(class=['ui','container', 'grid','stackable'])
+    div(class=['ten','wide','column'])
+      h2(class=['ui', 'header', 'blue','dividing'])= 'Modificar Produto'
+
+      div(class='form-novousuario')
+        form(class=['ui','form'] action='http://localhost:3000/editarP' method='post')
+          div(class=['ui','field'])
+            label(for='nome')= 'Nome'
+            input(type='text' name='nome' value=produto[0].product_name)
+          div(class=['ui','two','field'])
+            div(class=['ui','field'])
+              label(for='preco')= 'Preco'
+              input(type='text' name='preco' value=produto[0].product_price)
+            div(class=['ui','field'])
+              label(for='Descricao')= 'Descricao'
+              input(type='text' name='Descricao' value=produto[0].product_description)
+            div(class=['ui','field'])
+              label(for='quantidade')= 'Quantidade'
+              input(type='text' name='quantidade' value=produto[0].product_amount)
+              input(type='hidden' name='id_product' value=produto[0].id_product)
+          button(class=['ui','button','basic','black'])= 'Modificar Produto'

@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+  include ../templates/nav
+
+  div(class=['ui','container', 'grid','stackable'])
+    div(class=['ten','wide','column'])
+      h2(class=['ui', 'header', 'blue','dividing'])= 'Login'
+
+      div(class='form-novousuario')
+        form(class=['ui','form'] action='http://localhost:3000/login' method='post')
+          div(class=['ui','field'])
+              label(for='email')= 'Email'
+              input(type='email' name='username' id='email')
+            div(class=['ui','field'])
+              label(for='password')= 'Senha'
+              input(type='password' name='password' id='password')
+          button(class=['ui','button','basic','black'])= 'Enviar'

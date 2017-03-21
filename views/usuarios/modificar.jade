@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+  include ../templates/navu
+
+  div(class=['ui','container', 'grid','stackable'])
+    div(class=['ten','wide','column'])
+      h2(class=['ui', 'header', 'blue','dividing'])= 'Modificar Usuario'
+
+      div(class='form-novousuario')
+        form(class=['ui','form'] action='http://localhost:3000/editar' method='post')
+          div(class=['ui','field'])
+            label(for='nome')= 'Nome'
+            input(type='text' name='nome' value=usuario[0].Usu_Nome)
+          div(class=['ui','two','field'])
+            div(class=['ui','field'])
+              label(for='cpf')= 'CPF'
+              input(type='text' name='cpf' value=usuario[0].Usu_Cpf)
+            div(class=['ui','field'])
+              label(for='endereco')= 'Endereço'
+              input(type='text' name='endereco' value=usuario[0].Usu_End)
+            div(class=['ui','field'])
+              label(for='telefone')= 'Telefone'
+              input(type='text' name='telefone' value=usuario[0].Usu_Tel)
+            div(class=['ui','field'])
+              label(for='email')= 'Email'
+              input(type='email' name='email' value=usuario[0].Usu_Email)
+            div(class=['ui','field'])
+              label(for='senha')= 'Senha'
+              input(type='password' name='senha' value=usuario[0].Usu_Senha)
+              input(type='hidden' name='Usu_Id' value=usuario[0].Usu_Id)
+          button(class=['ui','button','basic','black'])= 'Modificar Usuário'

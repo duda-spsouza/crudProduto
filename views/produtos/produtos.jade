@@ -1,0 +1,35 @@
+extends ../layout
+
+block content
+  include ../templates/navu
+
+  div(class=['ui','container', 'grid','stackable'])
+    div(class=['sixteen','wide','column'])
+      h2(class=['ui', 'header', 'blue','dividing'])= 'Lista Produtos'
+      table(class=['ui','table', 'celled'] id='tbl-produtos')
+        thread
+          tr
+            th='ID'
+            th='Nome'
+            th='Preço'
+            th='Descrição'
+            th='Quantidade'
+            th='Data de Crição'
+            th='Ações'
+        tbody
+          each Produtos in produtos
+            tr
+              td(id='id_produto')= Produtos.id_product
+              td= Produtos.product_name
+              td= Produtos.product_price
+              td= Produtos.product_description
+              td= Produtos.product_amount
+              td= Produtos.product_date_created
+              td
+                a(class=['ui button icone'] href='#' data-inverted='' data-tooltip='Excluir' data-position='top center' id='btn-excluir')
+                  i(class=['trash icon'])
+
+                a(class=['ui button icone'] href='http://localhost:3000/modificarP/'+Produtos.id_product data-inverted='' data-tooltip='Editar' data-position='top center')
+                  i(class=['cut icon'])
+  script(src='/javascripts/usuarios.js')
+
